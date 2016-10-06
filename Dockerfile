@@ -1,17 +1,21 @@
 FROM php:7-apache
 MAINTAINER "Torgie <torgie@gmail.com>"
 
-# Settings for the application
+# Helpful for application rooted in the web directory
 ENV APPROOT /var/www
 
+# Extension/Module dependencies 
 RUN apt-get update && apt-get install -y \
   libmcrypt-dev
 
-# Necessary modules
+# Common extensions
 RUN docker-php-ext-install \
   bcmath \
   mcrypt \
   mysqli \
   pdo_mysql
+
+# Common modules
+RUN a2enmod rewrite
 
 WORKDIR /var/www
