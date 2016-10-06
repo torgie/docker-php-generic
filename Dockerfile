@@ -4,11 +4,13 @@ MAINTAINER "Torgie <torgie@gmail.com>"
 # Settings for the application
 ENV APPROOT /var/www
 
+RUN apt-get update && apt-get install -y \
+  libmcrypt-dev
+
 # Necessary modules
 RUN docker-php-ext-install \
-  curl \
+  bcmath \
   mcrypt \
-  pdo_mysql \
-  zip
+  pdo_mysql
 
 WORKDIR /var/www
