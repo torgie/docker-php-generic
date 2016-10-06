@@ -1,14 +1,14 @@
 # docker-php-generic
-Generic PHP server for little docker webapps
+Generic PHP server for little docker webapps; this just adds some core modules.
 
 ## Running the container
-The only thing you need to do is mount a host directory into /var/www
+The only thing you need to do is mount a host directory into /var/www/html!
 
-Optionally, you can set the LETSENCRYPT_EMAIL and LETSENCRYPT_HOST environment
-variables to automatically generate an SSL certificate for the given HOST.
+This works well when combined with jwilder's nginx reverse proxy. Just set the
+VIRTUAL_HOST environment variable when running the container and let the proxy
+do the rest.
 
-And lastly, if this is behind an nginx reverse proxy, set VIRTUAL_HOST to have
-that traffic automatically routed to this container and fed out the appropriate
-ports. This will almost certainly be the same as your LETSENCRYPT_HOST.
+If also combining it with the letsencrypt companion, then set the LETSENCRYPT_HOST
+environment variable to be the same as VIRTUAL_HOST to enable turn-key SSL.
 
 ## Enjoy!
