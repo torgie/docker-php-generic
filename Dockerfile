@@ -11,6 +11,7 @@ RUN apt-get update && apt-get install -y \
 RUN docker-php-ext-install \
   bcmath \
   mcrypt \
+  mysqli \
   pdo_mysql
 
 WORKDIR /var/www
