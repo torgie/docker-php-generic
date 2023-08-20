@@ -1,4 +1,4 @@
-FROM php:7-apache
+FROM php:7.4-apache
 MAINTAINER "Torgie <torgie@gmail.com>"
 
 # Helpful for application rooted in the web directory
@@ -12,7 +12,6 @@ RUN apt-get update && apt-get install -y \
 # Common extensions
 RUN docker-php-ext-install \
   bcmath \
-  mcrypt \
   mysqli \
   pdo_mysql
 
